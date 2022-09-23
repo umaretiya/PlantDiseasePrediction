@@ -1,21 +1,23 @@
+# app/Dockerfile
+
 FROM python:3.9
 
-WORKDIR /app 
-
-COPY requirements.txt  ./requirements.txt
-
-RUN pip install -r requirements.txt 
-
 EXPOSE 8501
-
 COPY . /app
+WORKDIR /app
 
-ENTRYPOINT [ "streamlit", "run" ]
+# RUN apt-get update && apt-get install -y \
+#     build-essential \
+#     software-properties-common \
+#     git \
+#     && rm -rf /var/lib/apt/lists/*
 
-# ENTRYPOINT ["streamlit", "run", "plantdisease.py", "--server.port=8501", "--server.address=0.0.0.0"]
-CMD [ "plantdisease.py" ]
+# RUN git clone https://github.com/streamlit/streamlit-example.git .
+RUN pip install --upgrade pip 
+RUN pip install opencv-python
+RUN pip install -r requirements.txt
 
-# docker build -t streamlite:latest .
-# docker images 
-# docker run -p 8501:8501 streamlite
+ENTRYPOINT ["streamlit", "run", "plantdisease.py", "--server.port=8501", "--server.address=0.0.0.0"]
 
+# docker build -t <stream>:latest .
+# docker run -p 8501:8501 <stream>

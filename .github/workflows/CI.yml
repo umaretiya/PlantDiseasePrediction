@@ -10,7 +10,7 @@ on:
         - main
 
 
-permission:
+permissions:
   contents: read
 
 jobs:

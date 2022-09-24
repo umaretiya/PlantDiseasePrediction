@@ -3,10 +3,10 @@
 1. Application - CNN and Coumpter vision
 
 Project Main Dri:
-config
-stufyFile
-test
-Data
+    - config
+    - stufyFile
+    - test
+    - Data
 
 src # project dir
     - PlantDisease -dir
